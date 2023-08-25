@@ -19,13 +19,11 @@ SupplyRuns baseSuppliers::supplyRun;
 
 bool selected;
 
-//int select_clock;
 
 void baseSuppliers::back(int supplierIndex) {
 	if (HUD::_UIPROMPT_IS_JUST_RELEASED(Prompt_Back) && !selected)
 	{
-		//AUDIO::_0x0F2A2175734926D8("BACK", "HUD_SHOP_SOUNDSET");
-
+	
 		AUDIO::PLAY_SOUND_FRONTEND("BACK", "HUD_SHOP_SOUNDSET", 1, 0);
 
 		Menu::menuState = MenuState::Suppliers;
@@ -72,7 +70,6 @@ void baseSuppliers::name(int supplierIndex) {
 	};
 
 
-	//Misc::drawText(supplierName, menuX + 0.12f, menuY + 0.03f, 255, 255, 255, 255, 1, 0.65f, 0.65f);
 }
 
 
@@ -171,8 +168,7 @@ void baseSuppliers::selectBack() {
 
 	if (HUD::_UIPROMPT_IS_JUST_RELEASED(Prompt_Back) && selected) {
 
-		//AUDIO::_0x0F2A2175734926D8("BACK", "HUD_SHOP_SOUNDSET");
-
+		
 		AUDIO::PLAY_SOUND_FRONTEND("BACK", "HUD_SHOP_SOUNDSET", 1, 0);
 
 		selected = 0;
@@ -184,8 +180,7 @@ void baseSuppliers::selectBack() {
 	if (select_clock > 10) {
 
 		if (HUD::_UIPROMPT_IS_JUST_RELEASED(Prompt_Select) && SupplyRuns::state == DeliveryState::Ambient) {
-			//AUDIO::_0x0F2A2175734926D8("INFO", "HUD_SHOP_SOUNDSET");
-
+			
 			AUDIO::PLAY_SOUND_FRONTEND("INFO", "HUD_SHOP_SOUNDSET", 1, 0);
 
 
@@ -202,8 +197,6 @@ void baseSuppliers::selectBack() {
 void suppliersCleanUp() {
 
 	Ped player = PLAYER::PLAYER_PED_ID();
-
-	//AUDIO::_0x0F2A2175734926D8("INFO", "HUD_SHOP_SOUNDSET");
 
 	AUDIO::PLAY_SOUND_FRONTEND("INFO", "HUD_SHOP_SOUNDSET", 1, 0);
 
@@ -234,7 +227,7 @@ void baseSuppliers::orderButton(int y, int supplierIndex) {
 	}
 	else {
 
-		HUD::_UIPROMPT_SET_ENABLED(Prompt_Select, 0); // _UIPROMPT_SET_ENABLED
+		HUD::_UIPROMPT_SET_ENABLED(Prompt_Select, 0); 
 		HUD::_UIPROMPT_SET_VISIBLE(Prompt_Select, 0);
 
 		if (Shop::suppliersOrder[supplierIndex]) {
@@ -256,22 +249,22 @@ void baseSuppliers::orderButton(int y, int supplierIndex) {
 
 		if (total > 0) {
 			if (MONEY::_MONEY_GET_CASH_BALANCE() >= (total * 100) || Shop::shop_revenue >= total) {
-				HUD::_UIPROMPT_SET_ENABLED(Prompt_Order, 1); // _UIPROMPT_SET_ENABLED
+				HUD::_UIPROMPT_SET_ENABLED(Prompt_Order, 1); 
 			}
 		}
 
 
 
-		HUD::_UIPROMPT_SET_VISIBLE(Prompt_Order, 1); // _UIPROMPT_SET_VISIBLE
+		HUD::_UIPROMPT_SET_VISIBLE(Prompt_Order, 1); 
 
-		HUD::_UIPROMPT_SET_ENABLED(Prompt_Select, 0); // _UIPROMPT_SET_ENABLED
+		HUD::_UIPROMPT_SET_ENABLED(Prompt_Select, 0); 
 		HUD::_UIPROMPT_SET_VISIBLE(Prompt_Select, 0);
 	}
 	else {
-		HUD::_UIPROMPT_SET_ENABLED(Prompt_Order, 0); // _UIPROMPT_SET_ENABLED
+		HUD::_UIPROMPT_SET_ENABLED(Prompt_Order, 0); 
 		HUD::_UIPROMPT_SET_VISIBLE(Prompt_Order, 0);
 
-		HUD::_UIPROMPT_SET_ENABLED(Prompt_Select, 1); // _UIPROMPT_SET_ENABLED
+		HUD::_UIPROMPT_SET_ENABLED(Prompt_Select, 1); 
 		HUD::_UIPROMPT_SET_VISIBLE(Prompt_Select, 1);
 
 	}
@@ -352,12 +345,6 @@ void baseSuppliers::highlighter(int y) {
 }
 
 void baseSuppliers::sumText() {
-	//drawTextSmall("Delievery route", menuX + 0.33f, menuY + 0.74f, 255, 255, 255, 200, 1, 0.25f, 0.4f);
-
-	//std::stringstream price_sumss;
-	//price_sumss << "Short";
-
-	//drawTextSmall("Short", menuX + 0.47f, menuY + 0.74f, 255, 255, 255, 200, 1, 0.25f, 0.4f);
 	if (Shop::totalStock == Shop::maxStock) {
 		Misc::drawTextSmall("Stock limit reached", menuX + 0.4f, menuY + 0.74f, 255, 0, 30, 200, 1, 0.25f, 0.4f);
 	}
@@ -420,7 +407,7 @@ void flavorText(int weapon_num) {
 		desc = "There is no better revolver to have\nat your side when heading west\ninto the land of milk and honey.\nFan the hammer in quick succession\nand you will see how quickly this\nrevolver can be unloaded to the\ndismayed surprise of others.";
 		Misc::drawSprite("cmpndm_weapons", "cmpndm_cattleman_revolver_photo", baseSuppliers::menuX - 0.09f + 0.11f, baseSuppliers::menuY + 0.15f, 0.2f, 0.2f, 0, 255, 255, 255, 250);
 		break;
-		//
+		
 	case 8:
 		weapon_name = "Upgraded Bandolier";
 		desc = "Bucks genuine tanned leather\nlongarm Bandolier. We have sold\na great many of these to men who\nfancy displaying volatile ammunition\non their chest.";

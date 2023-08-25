@@ -32,8 +32,6 @@ void Misc::createPrompt(Prompt& prompt, const char* input, const char* text, int
 
 
 
-	//HUD::_UIPROMPT_SET_GROUP(Prompt_Test, 268566632, 0);
-
 	HUD::_UIPROMPT_REGISTER_END(prompt);
 
 

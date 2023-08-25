@@ -196,19 +196,12 @@ void Menu::startUp() {
 
 
 		Object seq;
-		//TASK::OPEN_SEQUENCE_TASK(&seq);
-		//AI::TASK_TURN_PED_TO_FACE_COORD(0, posterCoords.x, posterCoords.y, posterCoords.z, 1000);
-
+		
 		
 		TASK::TASK_START_SCENARIO_AT_POSITION(player, MISC::GET_HASH_KEY("WORLD_HUMAN_VAL_BANKTELLER"), local.x, local.y, local.z, localHeading, -1, true, false, 0, 0, false);
 
-
-
-
-		//TASK::CLOSE_SEQUENCE_TASK(seq);
 		TASK::CLEAR_PED_TASKS(player, 1, 1);
-		//TASK::TASK_PERFORM_SEQUENCE(player, seq);
-
+		
 
 		
 	
@@ -217,11 +210,11 @@ void Menu::startUp() {
 		MenuControls::current_cell = 0;
 
 
-		HUD::_UIPROMPT_SET_ENABLED(Prompt_Menu, 0); // _UIPROMPT_SET_ENABLED
+		HUD::_UIPROMPT_SET_ENABLED(Prompt_Menu, 0); 
 		HUD::_UIPROMPT_SET_VISIBLE(Prompt_Menu, 0);
 
 
-		HUD::_UIPROMPT_SET_ENABLED(Prompt_Back, 1); // _UIPROMPT_SET_ENABLED
+		HUD::_UIPROMPT_SET_ENABLED(Prompt_Back, 1); 
 		HUD::_UIPROMPT_SET_VISIBLE(Prompt_Back, 1);
 
 
@@ -242,8 +235,8 @@ void Menu::startUp() {
 
 }
 
-float Menu::menuX = 0.02f; //menuX 0.040
-float Menu::menuY = 0.02f; //menuY 0.68
+float Menu::menuX = 0.02f; 
+float Menu::menuY = 0.02f; 
 
 bool toastOnce;
 
@@ -413,13 +406,7 @@ void Menu::shopWidget() {
 
 				}
 
-
-
-
-
-
-
-			HUD::_UIPROMPT_SET_ENABLED(Prompt_Menu, 0); // _UIPROMPT_SET_ENABLED
+			HUD::_UIPROMPT_SET_ENABLED(Prompt_Menu, 0); 
 			HUD::_UIPROMPT_SET_VISIBLE(Prompt_Menu, 0);
 
 			Entity ent;
@@ -427,7 +414,7 @@ void Menu::shopWidget() {
 				if (PLAYER::GET_PLAYER_TARGET_ENTITY(player2, &ent)) {
 					if (ENTITY::IS_ENTITY_A_PED(ent)) {
 						HUD::_UIPROMPT_SET_GROUP(Prompt_Menu, HUD::_UIPROMPT_GET_GROUP_ID_FOR_TARGET_ENTITY(ent), 0);
-						HUD::_UIPROMPT_SET_ENABLED(Prompt_Menu, 1); // _UIPROMPT_SET_ENABLED
+						HUD::_UIPROMPT_SET_ENABLED(Prompt_Menu, 1);
 						HUD::_UIPROMPT_SET_VISIBLE(Prompt_Menu, 1);
 					}
 
@@ -449,8 +436,8 @@ void Menu::shopWidget() {
 					if (ENTITY::IS_ENTITY_A_PED(ent)) {
 						HUD::_UIPROMPT_SET_GROUP(Prompt_Buy, HUD::_UIPROMPT_GET_GROUP_ID_FOR_TARGET_ENTITY(ent), 0);
 						if (Shop::inRangeVal) {
-							if (MONEY::_MONEY_GET_CASH_BALANCE() > 2000 * 100) { //2000 * 100
-								HUD::_UIPROMPT_SET_ENABLED(Prompt_Buy, 1); // _UIPROMPT_SET_ENABLED
+							if (MONEY::_MONEY_GET_CASH_BALANCE() > 2000 * 100) {
+								HUD::_UIPROMPT_SET_ENABLED(Prompt_Buy, 1); 
 
 							}
 							else {
@@ -508,13 +495,13 @@ void Menu::shopWidget() {
 				}
 			}
 			else {
-				HUD::_UIPROMPT_SET_ENABLED(Prompt_Buy, 0); // _UIPROMPT_SET_ENABLED
+				HUD::_UIPROMPT_SET_ENABLED(Prompt_Buy, 0); 
 				HUD::_UIPROMPT_SET_VISIBLE(Prompt_Buy, 0);
 			}
 
 
 
-			HUD::_UIPROMPT_SET_ENABLED(Prompt_Menu, 0); // _UIPROMPT_SET_ENABLED
+			HUD::_UIPROMPT_SET_ENABLED(Prompt_Menu, 0); 
 			HUD::_UIPROMPT_SET_VISIBLE(Prompt_Menu, 0);
 
 		}
@@ -525,21 +512,21 @@ void Menu::shopWidget() {
 
 	}
 	else {
-		HUD::_UIPROMPT_SET_ENABLED(Prompt_Menu, 0); // _UIPROMPT_SET_ENABLED
+		HUD::_UIPROMPT_SET_ENABLED(Prompt_Menu, 0); 
 		HUD::_UIPROMPT_SET_VISIBLE(Prompt_Menu, 0);
 
-		HUD::_UIPROMPT_SET_ENABLED(Prompt_Buy, 0); // _UIPROMPT_SET_ENABLED
+		HUD::_UIPROMPT_SET_ENABLED(Prompt_Buy, 0); 
 		HUD::_UIPROMPT_SET_VISIBLE(Prompt_Buy, 0);
 
 	}
-	//}
+	
 
 
 
 
 
 	if (Shop::val_gunsmith_bought || Shop::denis_gunsmith_bought || Shop::burg_gunsmith_bought || Shop::rho_gunsmith_bought || Shop::tum_gunsmith_bought) {
-		HUD::_UIPROMPT_SET_ENABLED(Prompt_Buy, 0); // _UIPROMPT_SET_ENABLED
+		HUD::_UIPROMPT_SET_ENABLED(Prompt_Buy, 0); 
 		HUD::_UIPROMPT_SET_VISIBLE(Prompt_Buy, 0);
 	}
 
@@ -608,36 +595,6 @@ void Menu::shopWidget() {
 	}
 
 
-	/*
-	if (HUD::_UIPROMPT_IS_JUST_RELEASED(Prompt_Threaten)) {
-		HUD::_UIPROMPT_SET_ENABLED(Prompt_Threaten, 0); // _UIPROMPT_SET_ENABLED
-		HUD::_UIPROMPT_SET_VISIBLE(Prompt_Threaten, 0);
-
-		if (shop_rep > 0) {
-			//shop_rep -= 5;
-		}
-
-
-		////works!!
-		//potential voice lines
-		//RE_GP_FTH_V1_GREET_THREATEN
-		//RE_GP_FTH_V2_GREET_THREATEN
-		//RE_GP_MNT1_V1_GREET_THREATEN
-		//RE_GP_MTN_V2_GREET_THREATEN
-
-
-		ScriptedSpeechParams params{ "WITNESS_THREATEN_AGAIN", 0, 1, 0x67F3AB43, 0, true, 1, 1 };
-		AUDIO::_PLAY_AMBIENT_SPEECH1(PLAYER::PLAYER_PED_ID(), (Any*)&params);
-
-		//WAIT(1000);
-
-		//ScriptedSpeechParams params{ "GREET_TRELAWNY", 0, 1, 0x67F3AB43, 0, true, 1, 1 };
-		//AUDIO::_PLAY_AMBIENT_SPEECH1(ent, (Any*)&params);
-
-	}
-
-	*/
-
 
 }
 
@@ -664,7 +621,6 @@ void menuCleanUp() {
 
 	Ped player = PLAYER::PLAYER_PED_ID();
 
-	//AUDIO::_0x0F2A2175734926D8("BACK", "HUD_SHOP_SOUNDSET");
 
 	AUDIO::PLAY_SOUND_FRONTEND("BACK", "HUD_SHOP_SOUNDSET", 1, 0);
 
@@ -712,19 +668,13 @@ void Menu::menuOn() {
 		}
 
 
-		HUD::_UIPROMPT_SET_ENABLED(Prompt_Select, 1); // _UIPROMPT_SET_ENABLED
+		HUD::_UIPROMPT_SET_ENABLED(Prompt_Select, 1);
 		HUD::_UIPROMPT_SET_VISIBLE(Prompt_Select, 1);
 
-		//Misc::drawSprite("pm_background_startup", "pause_background", menuX - 0.3, menuY - 0.1, 0.8f, 1.4f, 0, 255, 255, 255, 255);
- 
+	
 		Misc::drawSprite("menu_textures", "translate_bg_1a", menuX - 0.03, menuY - 0.02, 0.3f, 1.f, 0, 0, 0, 0, 255);
 		Misc::drawSprite("menu_textures", "translate_bg_1a", menuX + 0.22, menuY - 0.02, 0.4f, 1.f, 0, 0, 0, 0, 255);
-		//22
-
-		//CAM::SET_CINEMATIC_BUTTON_ACTIVE(0);
-
-		//HUD::HIDE_HUD_AND_RADAR_THIS_FRAME();
-
+		
 		HUD::_HIDE_HUD_COMPONENT(474191950);
 
 		HUD::_DISPLAY_HUD_COMPONENT(1920936087);
@@ -761,8 +711,7 @@ void Menu::menuOn() {
 
 
 		Misc::drawSprite("generic_textures", "menu_header_1a", menuX + 0.02, menuY, 0.2, 0.1f, 0, 255, 255, 255, 250);
-		//Misc::drawSprite("feed_location", "town_valentine", menuX + 0.02, menuY, 0.2, 0.1f, 0, 0, 255, 0, 250);
-
+		
 
 		if (Shop::inRangeVal) {
 			Misc::drawSprite("map_card_val_gunsmith", "image", menuX - 0.09f + 0.11f, menuY + 0.15f, 0.2f, 0.2f, 0, 255, 255, 255, 250);
@@ -998,14 +947,14 @@ void Menu::menuOn() {
 
 	}
 	else {
-		HUD::_UIPROMPT_SET_ENABLED(Prompt_Select, 0); // _UIPROMPT_SET_ENABLED
+		HUD::_UIPROMPT_SET_ENABLED(Prompt_Select, 0);
 		HUD::_UIPROMPT_SET_VISIBLE(Prompt_Select, 0);
 
-		HUD::_UIPROMPT_SET_ENABLED(Prompt_Order, 0); // _UIPROMPT_SET_ENABLED
-		HUD::_UIPROMPT_SET_VISIBLE(Prompt_Order, 0); // _UIPROMPT_SET_VISIBLE
+		HUD::_UIPROMPT_SET_ENABLED(Prompt_Order, 0); 
+		HUD::_UIPROMPT_SET_VISIBLE(Prompt_Order, 0); 
 
-		HUD::_UIPROMPT_SET_ENABLED(Prompt_Back, 0); // _UIPROMPT_SET_ENABLED
-		HUD::_UIPROMPT_SET_VISIBLE(Prompt_Back, 0); // _UIPROMPT_SET_VISIBLE
+		HUD::_UIPROMPT_SET_ENABLED(Prompt_Back, 0); 
+		HUD::_UIPROMPT_SET_VISIBLE(Prompt_Back, 0); 
 
 		HUD::_UIPROMPT_SET_VISIBLE(Prompt_Not_Enough, 0);
 		HUD::_UIPROMPT_SET_ENABLED(Prompt_Not_Enough, 0);
@@ -1034,13 +983,7 @@ void Menu::homePage() {
 
 		if (HUD::_UIPROMPT_IS_JUST_RELEASED(Prompt_Back))
 		{
-			//TASK::CLEAR_PED_TASKS(player, 1, 1);
-			//WEAPON::SET_CURRENT_PED_WEAPON(player, MISC::GET_HASH_KEY("weapon_unarmed"), 1, 0, 0, 0);
-
 			
-
-			//TASK::CLEAR_PED_TASKS_IMMEDIATELY(player, 1, 1);
-
 
 			menuState = MenuState::Off;
 
@@ -1078,12 +1021,6 @@ void Menu::homePage() {
 		Misc::drawText("Manage", menuX + 0.4, menuY + 0.133f + 0.3f, 255, 255, 255, 255, 1, 0.5f, 0.5f);
 		Misc::drawSprite("generic_textures", "selection_box_bg_1c", menuX + 0.3, menuY + 0.4f, 0.2, 0.1f, 0, 30, 30, 30, 250);
 
-		//Misc::drawText("Budget", menuX + 0.4, menuY + 0.133f + 0.4f, 255, 255, 255, 255, 1, 0.5f, 0.5f);
-		//Misc::drawSprite("generic_textures", "selection_box_bg_1c", menuX + 0.3, menuY + 0.5f, 0.2, 0.1f, 0, 30, 30, 30, 250);
-
-		//Misc::drawText("Sell", menuX + 0.4, menuY + 0.133f + 0.5f, 255, 255, 255, 255, 1, 0.5f, 0.5f);
-		//Misc::drawSprite("generic_textures", "selection_box_bg_1c", menuX + 0.3, menuY + 0.6f, 0.2, 0.1f, 0, 30, 30, 30, 250);
-
 
 		Misc::drawSprite("generic_textures", "menu_bar", menuX + 0.3f, menuY + 0.5f, 0.20, 0.0025f, 0, 255, 255, 255, 210);
 
@@ -1114,8 +1051,6 @@ void Menu::homePage() {
 
 		}
 
-		//Misc::drawSprite("generic_textures", "lock", menuX + 0.45, menuY + 0.53f, 0.02, 0.04, 0, 255, 255, 255, 250);
-		//Misc::drawSprite("generic_textures", "lock", menuX + 0.45, menuY + 0.33f, 0.02, 0.04, 0, 255, 255, 255, 250);
 		Misc::drawSprite("generic_textures", "lock", menuX + 0.45, menuY + 0.23f, 0.02, 0.04, 0, 255, 255, 255, 250);
 
 
@@ -1158,8 +1093,7 @@ void Menu::homePage() {
 
 			if (HUD::_UIPROMPT_IS_JUST_RELEASED(Prompt_Select))
 			{
-				//AUDIO::_0x0F2A2175734926D8("INFO", "HUD_SHOP_SOUNDSET");
-
+		
 				AUDIO::PLAY_SOUND_FRONTEND("INFO", "HUD_SHOP_SOUNDSET", 1, 0);
 
 				
@@ -1199,8 +1133,6 @@ void Menu::homePage() {
 		shop_open_clock++;
 		if (shop_open_clock > 45) {
 			if (HUD::_UIPROMPT_HAS_HOLD_MODE_COMPLETED(Prompt_Open_Shop)) {
-
-				//AUDIO::_0x0F2A2175734926D8("INFO", "HUD_SHOP_SOUNDSET");
 
 				AUDIO::PLAY_SOUND_FRONTEND("INFO", "HUD_SHOP_SOUNDSET", 1, 0);
 
@@ -1244,8 +1176,7 @@ void Menu::supplies() {
 	if (menuState == MenuState::Supplies) {
 		if (HUD::_UIPROMPT_IS_JUST_RELEASED(Prompt_Back))
 		{
-			//AUDIO::_0x0F2A2175734926D8("BACK", "HUD_SHOP_SOUNDSET");
-
+		
 			AUDIO::PLAY_SOUND_FRONTEND("BACK", "HUD_SHOP_SOUNDSET", 1, 0);
 			menuState = MenuState::Home;
 
@@ -1257,8 +1188,7 @@ void Menu::supplies() {
 		if (select_clock > 10) {
 			if (HUD::_UIPROMPT_IS_JUST_RELEASED(Prompt_Select))
 			{
-				//AUDIO::_0x0F2A2175734926D8("INFO", "HUD_SHOP_SOUNDSET");
-
+				
 				AUDIO::PLAY_SOUND_FRONTEND("INFO", "HUD_SHOP_SOUNDSET", 1, 0);
 
 				switch (MenuControls::menu_controls(1)) {
@@ -1320,9 +1250,7 @@ void Menu::supplies() {
 
 
 			Misc::drawText("Out of stock", menuX + 0.46f, menuY + 0.17f + 0.3f, 255, 0, 0, 255, 1, 0.35f, 0.35f);
-			//Misc::drawSprite("generic_textures", "selection_box_bg_1c", menuX + 0.3, menuY + 0.4f, 0.2, 0.1f, 0, 30, 30, 30, 250);
-			//Misc::drawText("Out of stock", menuX + 0.4f, menuY + 0.425f, 255, 0, 0, 255, 1, 0.7f, 0.8f);
-		}
+	}
 
 
 
@@ -1350,35 +1278,19 @@ void Menu::suppliers() {
 		bool other_on = 0;
 		if (HUD::_UIPROMPT_IS_JUST_RELEASED(Prompt_Back))
 		{
-			//AUDIO::_0x0F2A2175734926D8("BACK", "HUD_SHOP_SOUNDSET");
-
+			
 			AUDIO::PLAY_SOUND_FRONTEND("BACK", "HUD_SHOP_SOUNDSET", 1, 0);
 			menuState = MenuState::Supplies;
 			MenuControls::current_cell = 0;
 		}
 
 
-		//drawSprite("generic_textures", "menu_header_1a", menuX + 0.02, menuY + 0.03f, 0.2, 0.1f, 0, 255, 255, 255, 250);
-
-		//drawSprite("generic_textures", "title_divider", menuX + 0.28, menuY + 0.05f, 0.004, 0.9f, 0, 255, 255, 255, 250);
-
-		//drawSprite("generic_textures", "title_divider", menuX + 0.514, menuY + 0.05f, 0.004, 0.9f, 0, 255, 255, 255, 250);
-
-
-
-		//drawText("Suppliers", menuX + 0.12f, menuY + 0.06f, 255, 255, 255, 255, 1, 0.65f, 0.65f);
-
-		//Misc::drawSprite("map_card_camp_supply_ammo", "image", menuX + 0.58f, menuY + 0.135, 0.2f, 0.2f, 0, 255, 255, 255, 250);
-		//Misc::drawSprite("ui_advert_ammo_lancaster", "grid_o22f_4_layout_0", menuX + 0.5805f, menuY + 0.135, 0.2f, 0.33f, 0, 255, 255, 255, 150);
-
-
+	
 		Misc::drawSprite("generic_textures", "menu_bar", menuX + 0.3f, menuY + 0.1f, 0.20, 0.0025f, 0, 255, 255, 255, 210);
 
 
 		Misc::drawText("Lancaster", menuX + 0.4, menuY + 0.133f, 255, 255, 255, 255, 1, 0.5f, 0.5f);
 		Misc::drawSprite("generic_textures", "selection_box_bg_1c", menuX + 0.3, menuY + 0.1f, 0.2, 0.1f, 0, 30, 30, 30, 250);
-
-		//Misc::drawTextSmall("only this one works atm", menuX + 0.4, menuY + 0.17f, 255, 0, 0, 255, 1, 0.3f, 0.3f); NEXUS
 
 		Misc::drawText("Buck", menuX + 0.4, menuY + 0.133f + 0.1f, 255, 255, 255, 255, 1, 0.5f, 0.5f);
 		Misc::drawSprite("generic_textures", "selection_box_bg_1c", menuX + 0.3, menuY + 0.2f, 0.2, 0.1f, 0, 30, 30, 30, 250);
@@ -1398,9 +1310,7 @@ void Menu::suppliers() {
 		Misc::drawText("Litchfield", menuX + 0.4, menuY + 0.133f + 0.6f, 255, 255, 255, 255, 1, 0.5f, 0.5f);
 		Misc::drawSprite("generic_textures", "selection_box_bg_1c", menuX + 0.3, menuY + 0.7f, 0.2, 0.1f, 0, 30, 30, 30, 250);
 
-		//Misc::drawText("Other", menuX + 0.4, menuY + 0.133f + 0.7f, 255, 255, 255, 255, 1, 0.5f, 0.5f);
-		//Misc::drawSprite("generic_textures", "selection_box_bg_1c", menuX + 0.3, menuY + 0.8f, 0.2, 0.1f, 0, 30, 30, 30, 250);
-
+	
 		Misc::drawSprite("generic_textures", "menu_bar", menuX + 0.3f, menuY + 0.8f, 0.20, 0.0025f, 0, 255, 255, 255, 210);
 
 		//	float selectY = -0.013f; //nexus
@@ -1420,21 +1330,15 @@ void Menu::suppliers() {
 		char* supplier_name;
 
 		switch (MenuControls::current_cell) {
-		case 0:
-			//Misc::drawSprite("ui_advert_ammo_lancaster", "grid_of_4_layout_0", menuX + 0.5805f, menuY + 0.135, 0.2f, 0.33f, 0, 255, 255, 255, 255);
-
+		case 0:			
 			current_rep = current_rep * Shop::suppliersRep[0] / 100;
 			supplier_name = "Lancaster";
 			break;
-		case 1:
-			//Misc::drawSprite("ui_advert_ammo_buck", "grid_of_4_layout_0", menuX + 0.5805f, menuY + 0.135, 0.2f, 0.33f, 0, 255, 255, 255, 255);
-
+		case 1:		
 			current_rep = current_rep * Shop::suppliersRep[1] / 100;
 			supplier_name = "Buck";
 			break;
 		case 2:
-			//Misc::drawSprite("ui_advert_ammo_king_load", "grid_of_4_layout_0", menuX + 0.5805f, menuY + 0.135, 0.2f, 0.33f, 0, 255, 255, 255, 255);
-
 			current_rep = current_rep * Shop::suppliersRep[2] / 100;
 			supplier_name = "Muhlberg";
 			break;
@@ -1465,7 +1369,6 @@ void Menu::suppliers() {
 		if (select_clock > 20) {
 			if (HUD::_UIPROMPT_IS_JUST_RELEASED(Prompt_Select))
 			{
-				//AUDIO::_0x0F2A2175734926D8("INFO", "HUD_SHOP_SOUNDSET");
 
 				AUDIO::PLAY_SOUND_FRONTEND("INFO", "HUD_SHOP_SOUNDSET", 1, 0);
 
@@ -1511,8 +1414,6 @@ void Menu::suppliers() {
 
 
 
-		//Misc::drawSprite("generic_textures", "menu_header_1a", menuX + 0.58, menuY, 0.2, 0.1f, 0, 255, 255, 255, 250);
-
 		Misc::drawText(supplier_name, menuX + 0.12f, menuY + 0.03f, 255, 255, 255, 255, 1, 0.65f, 0.65f);
 
 		Misc::drawSprite("generic_textures", "menu_header_1a", menuX + 0.02, menuY, 0.2, 0.1f, 0, 255, 255, 255, 250);
@@ -1528,9 +1429,6 @@ void Menu::suppliers() {
 			Misc::drawSprite("honor_display", "honor_bar_grad_half", menuX + 0.f, menuY + 0.5f, 0.25f, 0.008f, 180, 250, 0, 0, 250);
 
 			Misc::drawSprite("honor_display", "honor_background", menuX + 0.f + current_rep, menuY + 0.484f, 0.025f, 0.035f, 0, 10, 10, 10, 220);
-
-
-			//honorTransform();
 
 			if (current_rep >= 0.12) {
 				Misc::drawSprite("honor_display", "honor_good", menuX + 0.f + current_rep, menuY + 0.484f, 0.024f, 0.035f, 0, honorTransform(), honorTransform(), honorTransform(), 250);
@@ -1562,20 +1460,18 @@ void Menu::suppliersSpecfic() {
 
 void Menu::yourSupplies() {
 
-	//PAD::DISABLE_CONTROL_ACTION(0, INPUT_SCRIPT_PAD_LEFT, true);
 	if (menuState == MenuState::YourSupplies) {
 
 		if (HUD::_UIPROMPT_IS_JUST_RELEASED(Prompt_Back))
 		{
-			//AUDIO::_0x0F2A2175734926D8("BACK", "HUD_SHOP_SOUNDSET");
-
+			
 			AUDIO::PLAY_SOUND_FRONTEND("BACK", "HUD_SHOP_SOUNDSET", 1, 0);
 			menuState = MenuState::Supplies;
 			MenuControls::current_cell = 1;
 		}
 
 
-		HUD::_UIPROMPT_SET_ENABLED(Prompt_Select, 0); // _UIPROMPT_SET_ENABLED
+		HUD::_UIPROMPT_SET_ENABLED(Prompt_Select, 0); 
 		HUD::_UIPROMPT_SET_VISIBLE(Prompt_Select, 0);
 
 		//if the item is not selected you can move the arrows
@@ -1905,8 +1801,7 @@ void Menu::upgrade() {
 		
 		if (HUD::_UIPROMPT_IS_JUST_RELEASED(Prompt_Back))
 		{
-			//AUDIO::_0x0F2A2175734926D8("BACK", "HUD_SHOP_SOUNDSET");
-
+			
 			AUDIO::PLAY_SOUND_FRONTEND("BACK", "HUD_SHOP_SOUNDSET", 1, 0);
 
 			menuState = MenuState::Home;
@@ -1918,8 +1813,7 @@ void Menu::upgrade() {
 		select_clock++;
 		if (select_clock > 120) {
 			if (HUD::_UIPROMPT_HAS_HOLD_MODE_COMPLETED(Prompt_Buy_Upgrade)) {
-				//AUDIO::_0x0F2A2175734926D8("PURCHASE", "Ledger_Sounds");
-
+				
 				AUDIO::PLAY_SOUND_FRONTEND("PURCHASE", "Ledger_Sounds", 1, 0);
 
 				switch (MenuControls::menu_controls(3)) {

@@ -15,7 +15,7 @@ using namespace std;
 std::vector<Ped> enemies1;
 
 
-
+//creates an enemy and adds it to the enemies vector
 void Enemies::addEnemy(Vector3 pos, vector<Ped> &enemies) {
 
 
@@ -27,6 +27,7 @@ void Enemies::addEnemy(Vector3 pos, vector<Ped> &enemies) {
 	TASK::CLEAR_PED_TASKS(enemyPed, true, true);
 }
 
+//creates an enemy on horseback and adds it to the enemies vector
 void Enemies::addHorseEnemy(Vector3 pos, vector<Ped>& enemies) {
 
 
@@ -44,7 +45,7 @@ void Enemies::addHorseEnemy(Vector3 pos, vector<Ped>& enemies) {
 
 
 
-
+//creates blips for enemies
 void Enemies::createEnemyBlips(vector<Ped> &enemies)
 {
 	std::vector<Ped>::iterator it;
@@ -56,7 +57,7 @@ void Enemies::createEnemyBlips(vector<Ped> &enemies)
 	}
 }
 
-
+//Makes the enemies attack the player with their best available weapon
 void Enemies::aggro(vector<Ped> &enemies)
 {
 	Ped player = PLAYER::PLAYER_PED_ID();
@@ -82,7 +83,7 @@ void Enemies::aggro(vector<Ped> &enemies)
 
 
 
-
+//a custom encounter that spawns during delivery runs
 void Enemies::Enemies_Custom(Vector3 vec, vector<Ped>& enemies) {
 
 	int enemy_amount = rand() % 3;
@@ -116,13 +117,8 @@ void Enemies::Enemies_Custom(Vector3 vec, vector<Ped>& enemies) {
 
 }
 
-
-
 vector<Ped> bountyHunters;
 vector<Ped> bountyhorses;
-
-
-
 
 int Enemies::enemiesSpawned = 0;
 
@@ -214,6 +210,7 @@ void Enemies::cleanUp() {
 		{
 			ENTITY::DELETE_ENTITY(&ent);
 		}
-		
+
 	}
 }
+

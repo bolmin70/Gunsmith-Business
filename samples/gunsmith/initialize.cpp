@@ -18,7 +18,7 @@
 
 
 
-
+//INI file options and prices
 int initialize::animation_on = GetPrivateProfileInt("MISC", "ANIMATION_ON", 1, ".\\Gunsmith.ini");
 int initialize::quick_anim_on = GetPrivateProfileInt("MISC", "QUICK_ANIMATION_ON", 0, ".\\Gunsmith.ini");
 int initialize::debug_texts = GetPrivateProfileInt("MISC", "DEBUG_INFO", 1, ".\\Gunsmith.ini");

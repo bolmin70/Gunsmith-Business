@@ -31,3 +31,6 @@
 *.out
 *.app
 samples/gunsmith/gunsmith.vcxproj.user
+samples/gunsmith/.vs/gunsmith/v16/.suo
+samples/gunsmith/.vs/gunsmith/v16/Browse.VC.db
+*.ipch

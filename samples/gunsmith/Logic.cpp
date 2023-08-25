@@ -74,12 +74,6 @@ void Logic::stockSell() {
 
 			sell_clock = 0;
 
-
-
-
-			//stored_int--;
-			//if (stored_visual[0] > 0) {
-
 			int sum = 0;
 			for (int i; i < Shop::hardLimit - 1; i++) {
 				if (Shop::stored[i] > 0) {
@@ -132,7 +126,7 @@ void Logic::stockSell() {
 
 				}
 			}
-			//}
+			
 
 		}
 
@@ -189,9 +183,7 @@ void Logic::ownershipBlip() {
 
 			MAP::_BLIP_SET_MODIFIER(businessBlip, MISC::GET_HASH_KEY("BLIP_MODIFIER_HIDE_HEIGHT_MARKER"));
 
-			//MAP::_BLIP_SET_MODIFIER(businessBlip, 0x1857A152);
-
-			//MAP::_BLIP_SET_MODIFIER(businessBlip, 0xAD76DF0A);
+			
 
 			MAP::SET_BLIP_SPRITE(businessBlip, MISC::GET_HASH_KEY("blip_shop_gunsmith"), false);
 			MAP::_SET_BLIP_NAME_FROM_PLAYER_STRING(businessBlip, (char*)MISC::_CREATE_VAR_STRING(10, "LITERAL_STRING", "Gunsmith Business"));
@@ -207,9 +199,7 @@ void Logic::ownershipBlip() {
 
 		if (Shop::val_gunsmith_bought) {
 			if (OBJECT::DOOR_SYSTEM_GET_DOOR_STATE(475159788)) {
-				//HUD::_UIPROMPT_SET_ENABLED(Prompt_Knock, 1); // _UIPROMPT_SET_ENABLED
-				//HUD::_UIPROMPT_SET_VISIBLE(Prompt_Knock, 1);
-
+			
 
 
 			}

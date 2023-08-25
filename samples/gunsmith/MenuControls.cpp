@@ -24,8 +24,7 @@ int MenuControls::menu_controls(int number_of_cells) {
 
 	//dpad controls
 	if (PAD::IS_CONTROL_JUST_PRESSED(0, MISC::GET_HASH_KEY("INPUT_FRONTEND_UP"))) {
-		//AUDIO::_0x0F2A2175734926D8("NAV_RIGHT", "PAUSE_MENU_SOUNDSET");
-
+		
 		AUDIO::PLAY_SOUND_FRONTEND("NAV_RIGHT", "PAUSE_MENU_SOUNDSET", 1, 0);
 
 		current_cell--;
@@ -35,8 +34,7 @@ int MenuControls::menu_controls(int number_of_cells) {
 	}
 
 	if (PAD::IS_CONTROL_JUST_PRESSED(0, MISC::GET_HASH_KEY("INPUT_FRONTEND_DOWN"))) {
-		//AUDIO::_0x0F2A2175734926D8("NAV_LEFT", "PAUSE_MENU_SOUNDSET");
-
+		
 		AUDIO::PLAY_SOUND_FRONTEND("NAV_LEFT", "PAUSE_MENU_SOUNDSET", 1, 0);
 
 		current_cell++;
@@ -69,8 +67,7 @@ int MenuControls::menu_controls_alt(int number_of_cells) {
 
 	//dpad controls
 	if (PAD::IS_DISABLED_CONTROL_JUST_PRESSED(0, MISC::GET_HASH_KEY("INPUT_FRONTEND_LEFT"))) {
-		//AUDIO::_0x0F2A2175734926D8("NAV_RIGHT", "PAUSE_MENU_SOUNDSET");
-
+		
 		AUDIO::PLAY_SOUND_FRONTEND("NAV_RIGHT", "PAUSE_MENU_SOUNDSET", 1, 0);
 		current_cell_x--;
 		if (current_cell_x < 0) {
@@ -79,8 +76,7 @@ int MenuControls::menu_controls_alt(int number_of_cells) {
 	}
 
 	if (PAD::IS_CONTROL_JUST_PRESSED(0, MISC::GET_HASH_KEY("INPUT_FRONTEND_RIGHT"))) {
-		//AUDIO::_0x0F2A2175734926D8("NAV_LEFT", "PAUSE_MENU_SOUNDSET");
-
+		
 		AUDIO::PLAY_SOUND_FRONTEND("NAV_LEFT", "PAUSE_MENU_SOUNDSET", 1, 0);
 		current_cell_x++;
 		if (current_cell_x > number_of_cells) {
